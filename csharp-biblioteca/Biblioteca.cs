@@ -11,22 +11,11 @@ namespace csharp_biblioteca
         public List<Utente> Utenti = new List<Utente>();
         public List<Prestito> Prestiti = new List<Prestito>();
         public List<Documento> Documenti = new List<Documento>();
-        public Utente Utente { get; set; }
-  
-       
-        public void creaUtente(string cognome,string nome,string email,string password, int telefono)
-        {
-            
-            Utente nuovoUtente = new Utente(cognome, nome, email, password, telefono);
-            AggiungiUtente(nuovoUtente);
-            Utente = nuovoUtente;
-            
-        }
-        public void RicercaLibro()
+    
+        public void RicercaLibro(string titolo,Utente utente)
         {
            
-            Console.Write("Scrivi il titolo di un libro : ");
-            string titolo = Console.ReadLine();
+       
             var ricercaLibro = Documenti.Find(x => x.Titolo == titolo);
 
             if (ricercaLibro != null)
@@ -41,7 +30,7 @@ namespace csharp_biblioteca
                     string dataInizio = Console.ReadLine();
                     Console.WriteLine("Inserisci la data di fine prestito : ");
                     string dataFine = Console.ReadLine();
-                    Prestito prestito2 = new Prestito(Utente, dataInizio, dataFine, ricercaLibro);
+                    Prestito prestito2 = new Prestito(utente, dataInizio, dataFine, ricercaLibro);
                     AggiungiPrestito(prestito2);
                     Console.WriteLine("Il tuo prestito è stato completato!");
                 }
@@ -50,12 +39,9 @@ namespace csharp_biblioteca
             else
                 Console.WriteLine("Non é stato trovato nessun libro con quel titolo");
         }
-        public void RicercaPrestito()
+        public void RicercaPrestito(string nomePrestitoUtente, string cognomePrestitoUtente)
         {
-            Console.WriteLine("Inserisci il nome dell`utente");
-            string nomePrestitoUtente = Console.ReadLine();
-            Console.WriteLine("Inserisci il cognome dell`utente");
-            string cognomePrestitoUtente = Console.ReadLine();
+          
             var ricercaPrestito = Prestiti.Find(x => x.Utente.Nome == nomePrestitoUtente && x.Utente.Cognome == cognomePrestitoUtente);
             if (ricercaPrestito != null)
             {

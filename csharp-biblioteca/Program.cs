@@ -36,14 +36,22 @@
             int telefono;
             while (!int.TryParse(Console.ReadLine(), out telefono))
                 Console.WriteLine("Inserisci dei numeri");
-            biblioteca.creaUtente(cognomeUtente, nomeUtente, email, password, telefono);
+            Utente nuovoUtente = new Utente(cognomeUtente, nomeUtente, email, password, telefono);
+            biblioteca.Utenti.Add(nuovoUtente);
+
             Console.WriteLine("Ti sei registrato correttamente!");
-            biblioteca.RicercaLibro();
+            Console.Write("Scrivi il titolo di un libro : ");
+            string titolo = Console.ReadLine();
+            biblioteca.RicercaLibro(titolo,nuovoUtente);
             Console.WriteLine("Vuoi cercare il prestito di un utente? (Si/No)");
             string boolPrestitoUtente = Console.ReadLine();
             if (boolPrestitoUtente == "Si")
             {
-                biblioteca.RicercaPrestito();
+                Console.WriteLine("Inserisci il nome dell`utente");
+                string nomePrestitoUtente = Console.ReadLine();
+                Console.WriteLine("Inserisci il cognome dell`utente");
+                string cognomePrestitoUtente = Console.ReadLine();
+                biblioteca.RicercaPrestito(nomePrestitoUtente, cognomePrestitoUtente);
             }
             
         } 
