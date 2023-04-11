@@ -9,7 +9,7 @@ namespace csharp_biblioteca
     internal class Prestito
     {
         public Utente Utente { get; set; }
-        public string PeriodoInizio { get; set; }
+        public  string PeriodoInizio { get; set; }
         public string PeriodoFine { get; set; }
         public Documento Documento { get; set; }
 
