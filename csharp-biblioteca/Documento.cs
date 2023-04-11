@@ -10,7 +10,7 @@ namespace csharp_biblioteca
     {
      
 
-        public string Codice { get; set; }
+        public string Codice { get;private  set; }
         public string Titolo { get; set; }
         public int Anno { get; set; }
         public string Settore { get; set; }
