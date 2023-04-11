@@ -34,7 +34,7 @@
            
             Console.Write($"Numero di telefono : ");
             int telefono;
-            while (!int.TryParse(Console.ReadLine(), out telefono)) ;
+            while (!int.TryParse(Console.ReadLine(), out telefono))
                 Console.WriteLine("Inserisci dei numeri");
             Utente nuovoUtente = new Utente(cognomeUtente, nomeUtente, email, password, telefono);
             Console.WriteLine("Ti sei registrato correttamente!");
@@ -47,12 +47,8 @@
                 Console.Write("é stato trovato il seguente libro : ");  Console.WriteLine(ricercaLibro.Titolo);
                 Console.WriteLine("Vuoi prenderlo in prestito? (Si/No)");
                 string boolPrestitoLibro = Console.ReadLine();
-                while(boolPrestitoLibro != "Si" || boolPrestitoLibro != "No")
-                {
-                    Console.WriteLine("Devi scrivere `Si` oppure `No`!");
-
-                }
-                if (boolPrestitoLibro == "Si")
+              
+                 if (boolPrestitoLibro == "Si")
                 {
                     Console.WriteLine("Inserisci la data di inizio prestito : ");
                     string dataInizio = Console.ReadLine();
@@ -60,21 +56,18 @@
                     string dataFine = Console.ReadLine();
                     Prestito prestito2 = new Prestito(nuovoUtente, dataInizio, dataFine, ricercaLibro);
                     listaPrestiti.Add(prestito2);
+                    Console.WriteLine("Il tuo prestito è stato completato!");
                 }
-                else
-                    Environment.Exit(0);
+                
             }
             else
-                Console.Write("Non é stato trovato nessun libro con quel titolo");
+                Console.WriteLine("Non é stato trovato nessun libro con quel titolo");
            
             Console.WriteLine("Vuoi cercare il prestito di un utente? (Si/No)");
             string boolPrestitoUtente = Console.ReadLine();
-            while (boolPrestitoUtente != "Si" || boolPrestitoUtente != "No")
-            {
-                Console.WriteLine("Devi scrivere `Si` oppure `No`!");
-
-            }
-            if(boolPrestitoUtente == "Si")
+           
+          
+            if (boolPrestitoUtente == "Si")
             {
                 Console.WriteLine("Inserisci il nome dell`utente");
                 string nomePrestitoUtente = Console.ReadLine();
@@ -83,20 +76,20 @@
                 var ricercaPrestito = listaPrestiti.Find(x => x.Utente.Nome == nomePrestitoUtente && x.Utente.Cognome == cognomePrestitoUtente);
                 if(ricercaPrestito != null)
                 {
-                    Console.Write($"Ecco le informazioni riguardo al prestito che è stato trovato : ");
+                    Console.WriteLine($"Ecco le informazioni riguardo al prestito che è stato trovato : ");
                     Console.WriteLine($"Titolo : {ricercaPrestito.Documento.Titolo}");
                     Console.WriteLine($"Autore : {ricercaPrestito.Documento.Autore}");
                     Console.WriteLine($"Anno : {ricercaPrestito.Documento.Anno}");
                     Console.WriteLine($"Codice : {ricercaPrestito.Documento.Codice}");
                     Console.WriteLine($"Scaffale : {ricercaPrestito.Documento.Settore}");
                     Console.WriteLine($"Scaffale : {ricercaPrestito.Documento.Scaffale}");
+                    Console.WriteLine($"Data inizio prestito : {ricercaPrestito.PeriodoInizio}");
+                    Console.WriteLine($"Data fine prestito : {ricercaPrestito.PeriodoFine}");
                 }
                 else
                     Console.Write($"Non è stato trovato nessun prestito ");
             }
             
-
-
             Biblioteca biblioteca = new Biblioteca(listaUtenti, listaPrestiti, listaDocumenti);
 
 
