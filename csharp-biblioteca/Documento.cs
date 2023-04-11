@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_biblioteca
 {
-    internal class Documento
+     internal class Documento
     {
      
 
@@ -26,5 +26,6 @@ namespace csharp_biblioteca
             Scaffale = scaffale;
         }
     }
+ 
 
 }
