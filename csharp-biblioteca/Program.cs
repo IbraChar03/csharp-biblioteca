@@ -11,11 +11,11 @@
             Libro libro2 = new Libro(123, "GFGE32", "Titolo2", 2006, "Horror", "Mario Rossi", 7);
             Libro libro3 = new Libro(443, "DGFS12", "Titolo3", 2013, "Fantasy", "Paolo Gialli ", 2);
             Prestito prestito1 = new Prestito(utente1, "11/04/2023", "11/05/2023", libro1);
-            biblioteca.Utenti.Add(utente1);
-            biblioteca.Documenti.Add(libro1);
-            biblioteca.Documenti.Add(libro2);
-            biblioteca.Documenti.Add(libro3);
-            biblioteca.Prestiti.Add(prestito1);
+            biblioteca.AggiungiUtente(utente1);
+            biblioteca.AggiungiDocumento(libro1);
+            biblioteca.AggiungiDocumento(libro2);
+            biblioteca.AggiungiDocumento(libro3);
+            biblioteca.AggiungiPrestito(prestito1);
             Console.WriteLine("Benvenuto nella biblioteca!");
             Console.WriteLine("Registrati per iniziare");
 

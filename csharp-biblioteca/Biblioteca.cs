@@ -18,7 +18,7 @@ namespace csharp_biblioteca
         {
             
             Utente nuovoUtente = new Utente(cognome, nome, email, password, telefono);
-            Utenti.Add(nuovoUtente);
+            AggiungiUtente(nuovoUtente);
             Utente = nuovoUtente;
             
         }
@@ -42,7 +42,7 @@ namespace csharp_biblioteca
                     Console.WriteLine("Inserisci la data di fine prestito : ");
                     string dataFine = Console.ReadLine();
                     Prestito prestito2 = new Prestito(Utente, dataInizio, dataFine, ricercaLibro);
-                    Prestiti.Add(prestito2);
+                    AggiungiPrestito(prestito2);
                     Console.WriteLine("Il tuo prestito è stato completato!");
                 }
 
@@ -73,6 +73,19 @@ namespace csharp_biblioteca
                 Console.Write($"Non è stato trovato nessun prestito ");
        
 
+        }
+        public void AggiungiUtente(Utente utente)
+        {
+            Utenti.Add(utente);
+        }
+        public void AggiungiPrestito(Prestito prestito)
+        {
+            Prestiti.Add(prestito);
+
+        }
+        public void AggiungiDocumento(Documento documento)
+        {
+            Documenti.Add(documento);
         }
 
     }
